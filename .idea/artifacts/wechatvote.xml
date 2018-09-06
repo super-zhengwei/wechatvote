@@ -2,13 +2,12 @@
   <artifact type="exploded-war" name="wechatvote">
     <output-path>$PROJECT_DIR$/WebContent/WEB-INF/classes/artifacts/wechatvote</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="wechatvote/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="wechatvote" />
         </element>
-        <element id="directory" name="lib" />
       </element>
+      <element id="javaee-facet-resources" facet="wechatvote/web/Web" />
     </root>
   </artifact>
 </component>

@@ -39,7 +39,7 @@ function getVoteDetail(){
 				html.push('<div class="mui-media-body">');
 				var name=nullToSpace(item.nickname);
 				if(item.vote_type=="10"){
-					name+="点赞加人气";
+					name+="投票";
 				}else{
 					name+="赠送"+item.gift_num+"个"+item.gift_name+"";
 				}
