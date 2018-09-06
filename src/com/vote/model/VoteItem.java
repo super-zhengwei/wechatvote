@@ -45,9 +45,9 @@ public class VoteItem extends Model<VoteItem>
     		sql.append(" and a.group_id = 2");
     	}
     	if("all".equals(status)){
-    		sql.append(" order by a.user_code");
+			sql.append(" order by a.sort desc, a.user_code");
     	}else {
-    		sql.append(" order by a.create_time desc");
+    		sql.append(" order by a.sort desc, a.user_code");
     	}
         return paginate(pageNumber, pageSize, select.toString(),
                 sql.toString());

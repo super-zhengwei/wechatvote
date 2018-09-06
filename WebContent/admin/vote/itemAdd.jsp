@@ -48,6 +48,12 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>排序</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" id="sort" name="sort" placeholder="输入排序">
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>头像：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div id="thelist" class="uploader-list"></div>

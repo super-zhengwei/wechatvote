@@ -8,6 +8,9 @@ mui.init();
  *初始化、添加监听 
  */
 mui.ready(function(){
+    $.each(itemType,function(id,item){
+        $("#item_type").append('<option value="'+item.dict_key+'">'+item.dict_value+'</option>');
+    });
 	initUpload();
 	initUpload1();
 	getGroup();
@@ -29,11 +32,23 @@ mui.ready(function(){
 //	    	   $("#picker1").show();
 //		}
 	});
+    $("#vote_group").change(function(){
+        if($(this).val()=="2"){
+            $("#item_type").val("");
+            $("#itemTypeDiv").hide();
+        }else{
+            $("#itemTypeDiv").show();
+        }
+    })
 	//提交
 	$(".mui-btn-primary").on("tap",function(e){
 		var userName=$.trim($("#user_name").val());
 		var mobile=$.trim($("#mobile").val());
 		var voteGroup=$("#vote_group").val();
+		var itemType="";
+		if (voteGroup=="1"){
+            itemType = $("#item_type").val();
+        }
 		var remark=$.trim($("#remark").val());
 		if(userName==""){
 			return layer.open({content: "请输入姓名",time: 3});
@@ -58,7 +73,7 @@ mui.ready(function(){
 		}
 		var param = $.param({'vote_id':voteId})+ '&' + $.param({'openid':openid})+ '&' +
 			$.param({'user_name':userName})+ '&' + $.param({'mobile':mobile})+ '&' +
-			$.param({'group_id':voteGroup})+ '&' + $.param({'head_img':headImg}) + '&'
+			$.param({'group_id':voteGroup})+ '&'+ $.param({'item_type':itemType})+ '&' + $.param({'head_img':headImg}) + '&'
 			+ $.param({'list':JSON.stringify(arr)})+ '&' + $.param({'remark':remark});
 		if(itemId){
 			param = param + '&' + $.param({'id':itemId});

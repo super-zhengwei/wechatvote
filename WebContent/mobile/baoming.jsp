@@ -61,6 +61,14 @@
 				
 			</select>
 		</div>
+        <div id="itemTypeDiv">
+            <p class="main-color">选择分类</p>
+            <div class="mui-input-row" >
+                <select id="item_type" style="margin-bottom: 0;">
+
+                </select>
+            </div>
+        </div>
 		<p class="main-color">头像</p>
 		<div id="image-list" class="row image-list">
 			<div id="thelist" style="display: inline-block;">
