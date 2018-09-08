@@ -3,6 +3,41 @@
 <%@ include file="./common/meta.jsp"%>
 <meta name="description" content="欢迎大家来给我投票！">
 <title></title>
+<!-- tab导航栏 -->
+	<style type="text/css">
+	*{
+	margin: 0;
+	padding: 0;
+	}
+	
+	.wrap{
+		padding:10px 10px 0;
+		font-size: 14px;
+		color:#fff;
+	    position: relative;
+	    display: table;
+	    overflow: hidden;
+	    overflow-x: auto;
+	    width: 100%;
+	    table-layout: fixed;
+	    background-color: transparent;
+	    position:relative;
+	}
+	#category-head{
+		width:100%;
+		background:red;
+		z-index:-999;
+		white-space: nowrap;
+		overflow-x: auto;
+		float:left;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#category-head li{
+		display:inline-block;
+		padding:7px 8px;
+	}
+	</style>
 </head>
 <body>
 	<nav class="mui-bar mui-bar-tab" style="display: none;">
@@ -77,11 +112,20 @@
 				上饶厨神
 			</a>
 		</div>
-		<div class="group">
-			<select id="itemType">
-				
-			</select>
+		
+		<div class="wrap">
+			<ul id="category-head">
+		       <li class="flex" style="">中餐</li>
+		       <li class="flex" style="" >火锅</li>
+		       <li class="flex hover" style="" >自助餐西餐</li>
+		       <li class="flex" style="" >酒店</li>
+		       <li class="flex" style="" >土特菜</li>
+		       <li class="flex" style="" >特色小吃</li>
+		       <li class="flex" style="" >休闲娱乐</li>
+		       <li class="flex" style="" >特色农家乐</li>
+			</ul>
 		</div>
+
 		<section class="falls">
 	        <ul class="fl columns">
 	        </ul>

@@ -253,7 +253,7 @@
 	padding:0 10px;
 }
 .li_box {
-    background: #e37045;
+    background: #ffffff;
     padding: 5px;
     overflow: hidden;
 }
@@ -418,14 +418,12 @@ input[type='submit'],
 }
 input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-btn-primary:enabled:active,
-.mui-btn-primary.mui-active:enabled, .mui-btn-blue:enabled:active, .mui-btn-blue.mui-active:enabled
-{
+.mui-btn-primary.mui-active:enabled, .mui-btn-blue:enabled:active, .mui-btn-blue.mui-active:enabled{
     color: #fff;
     border: 1px solid #78aeff;
     background-color: #78aeff;
 }
-.mui-bar
-{
+.mui-bar{
     background-color: #ea0607;
 }
 .mui-bar-tab {
