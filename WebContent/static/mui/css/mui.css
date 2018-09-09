@@ -2055,6 +2055,11 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     margin-bottom: 0;
 }
 
+.no-bg .mui-table-view-cell.mui-active
+{
+    background-color: transparent;
+}
+
 .mui-table-view
 {
     position: relative;
@@ -3886,7 +3891,7 @@ select:focus
     padding: 15px;
 
     border-radius: 13px 13px 0 0;
-    background: rgba(255, 255, 255, .95);
+    background: rgba(255, 255, 255, 1);
 }
 .mui-popup-inner:after
 {

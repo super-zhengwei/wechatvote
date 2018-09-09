@@ -78,6 +78,12 @@
 				<textarea name="remark" id="remark" class="textarea" placeholder="输入宣言"></textarea>
 			</div>
 		</div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-2">链接地址：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" id="url" name="url" placeholder="链接地址">
+            </div>
+        </div>
 		<div class="row cl">
 			<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>微信OPENID：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -140,14 +146,14 @@ $(document).ready(function(){
 		arr.removeAt(($(this).index()));
 		$(this).parents('.file-item').remove();
 	});
-	$("#group_id").change(function(){
-		if($(this).val()=="2"){
-			$("#item_type").val("");
-			$("#itemTypeDiv").hide();
-		}else{
-			$("#itemTypeDiv").show();
-		}
-	})
+//	$("#group_id").change(function(){
+//		if($(this).val()=="2"){
+//			$("#item_type").val("");
+//			$("#itemTypeDiv").hide();
+//		}else{
+//			$("#itemTypeDiv").show();
+//		}
+//	})
 });
 function initUpload(){
 	$list = $('#thelist');

@@ -32,23 +32,20 @@ mui.ready(function(){
 //	    	   $("#picker1").show();
 //		}
 	});
-    $("#vote_group").change(function(){
-        if($(this).val()=="2"){
-            $("#item_type").val("");
-            $("#itemTypeDiv").hide();
-        }else{
-            $("#itemTypeDiv").show();
-        }
-    })
+//    $("#vote_group").change(function(){
+//        if($(this).val()=="2"){
+//            $("#item_type").val("");
+//            $("#itemTypeDiv").hide();
+//        }else{
+//            $("#itemTypeDiv").show();
+//        }
+//    });
 	//提交
 	$(".mui-btn-primary").on("tap",function(e){
 		var userName=$.trim($("#user_name").val());
 		var mobile=$.trim($("#mobile").val());
 		var voteGroup=$("#vote_group").val();
-		var itemType="";
-		if (voteGroup=="1"){
-            itemType = $("#item_type").val();
-        }
+		var itemType=$("#item_type").val();
 		var remark=$.trim($("#remark").val());
 		if(userName==""){
 			return layer.open({content: "请输入姓名",time: 3});

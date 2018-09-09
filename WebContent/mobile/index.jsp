@@ -125,14 +125,15 @@
 		       <li class="flex" style="" >特色农家乐</li>
 			</ul>
 		</div>
-
-		<section class="falls">
-	        <ul class="fl columns">
-	        </ul>
-	        <ul class="fr columns">
-		    </ul>
-	        <p id="loadMore" class="main-color"><span>点击查看更多</span></p>
-	    </section>
+		<div class="content">
+			<section class="falls">
+				<ul class="fl columns">
+				</ul>
+				<ul class="fr columns">
+				</ul>
+				<%--<p id="loadMore" class="main-color"><span>点击查看更多</span></p>--%>
+			</section>
+		</div>
 	</div>
 <!-- 	<div class="arrow"></div> -->
 	<div class="search"> 

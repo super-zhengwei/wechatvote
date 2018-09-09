@@ -105,6 +105,19 @@ mui.ready(function(){
 	$(".user-name").on("tap","span",function(){
 		location.href="../mobile/baoming.jsp?voteId="+voteId+"&itemId="+itemId;
 	});
+
+    $(".header").on("tap",".guanzhu",function(e){
+        var html=[];
+        html.push('<img src="http://www.3water.cn:9090/custom/321f2336f4804375aa76ea4f6b17cef4.jpg" style="width:100%">');
+        mui.alert(html.join(""), '关注“<span class="main-color">上饶网</span>”');
+    });
+    $(".shop").on("tap",function(){
+        if (data.url){
+            location.href=data.url;
+        }else{
+            location.href="http://www.3water.cn/buying/mobile/index.jsp";
+        }
+    });
 });
 
 function onBridgeReady(json){
@@ -140,8 +153,9 @@ function getItem(){
 		}else{
 			$(".status").html('已审核');
 		}
-		if(data.group_id==1){
-			$(".type-name").html(getTypeName(data.item_type));
+        $(".type-name").html(getTypeName(data.item_type));
+		if(data.group_id==2){
+			$(".shop").hide();
 		}
 		$(".group-name").html(data.group_name);
 		$(".remark").html(data.remark);

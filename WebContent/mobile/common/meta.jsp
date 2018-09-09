@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="stylesheet" href="${base}/static/mui/css/mui.css?v=${version}">
 <link rel="stylesheet" href="${base}/static/mui/css/iconfont.css?v=${version}">
+<link rel="stylesheet" href="${base}/static/dropload/dropload.css?v=${version}">
 <link rel="stylesheet" href="${base}/styles/css/style.css?v=${version}">
 <link rel="stylesheet" href="${base}/styles/css/blue.css?v=${version}">
 <%
@@ -33,5 +34,6 @@
 <script src="${base}/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script src="${base}/lib/layer-mobile/layer.js"></script> 
 <script src="${base}/static/mui/js/mui.min.js"></script>
+<script src="${base}/static/dropload/dropload.js"></script>
 <script src="./common/wechat.js?v=${version}"></script>
 <script type="text/javascript" src="${base}/dict/getItemType"></script> 

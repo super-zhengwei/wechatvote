@@ -10,6 +10,7 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 import com.vote.model.Vote;
 import com.vote.model.VoteData;
+import com.vote.model.VoteItem;
 import com.vote.util.Ret;
 
 @Before(POST.class)
@@ -34,8 +35,9 @@ public class VoteDataController extends BaseController {
 //			renderJson(ret);
 //			return;
 //		}
-		VoteData model = VoteData.dao.getByOpenid(openid);
 		Vote vote = Vote.dao.findById(voteId);
+        VoteItem item = VoteItem.dao.findById(itemId);
+        Record model = VoteData.dao.getByOpenid(openid, item.getInt("group_id"));
 		if("1".equals(vote.getStr("vote_status"))){
 			ret.addError("活动已暂停");
 			renderJson(ret);
@@ -48,7 +50,7 @@ public class VoteDataController extends BaseController {
 		}
 		if(model!=null){
 			ret.setData("-1");
-			ret.addError("您当天的次数已经用完，明天再来支持你的小伙伴~");
+			ret.addError("每天只能投两票，品牌、厨神各一票，明天再来支持你的小伙伴~");
 			renderJson(ret);
 			return;
 		}

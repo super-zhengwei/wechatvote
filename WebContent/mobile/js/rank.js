@@ -44,11 +44,11 @@ mui.ready(function(){
 			$(this).addClass("mui-active");
 			$(this).siblings().removeClass("mui-active");
 			flag=$(this).index();
-			if(flag==1){
-				$("#itemType").hide();
-			}else{
-				$("#itemType").show();
-			}
+			// if(flag==1){
+			// 	$("#itemType").hide();
+			// }else{
+			// 	$("#itemType").show();
+			// }
 			getList();
 		}
 	});

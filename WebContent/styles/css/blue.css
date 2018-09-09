@@ -399,7 +399,7 @@
 }
 .segmented-control .control-item.mui-active {
     color: #fff;
-    background-color: #e37045;
+    background-color: #f88d9f;
 }
 .mui-table .mui-btn{
 	margin-right:10px;
@@ -413,15 +413,15 @@ input[type='submit'],
 .mui-btn-primary, .mui-btn-blue
 {
     color: #fff;
-    border: 1px solid #73a9f9;
-    background-color: #73a9f9;
+    border: 1px solid #ea0607;
+    background-color: #ea0607;
 }
 input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-btn-primary:enabled:active,
 .mui-btn-primary.mui-active:enabled, .mui-btn-blue:enabled:active, .mui-btn-blue.mui-active:enabled{
     color: #fff;
-    border: 1px solid #78aeff;
-    background-color: #78aeff;
+    border: 1px solid #ea0607;
+    background-color: #ea0607;
 }
 .mui-bar{
     background-color: #ea0607;

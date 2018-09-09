@@ -43,6 +43,13 @@
 	.vote-user .mui-media{
 		height:64px;
 	}
+    .header {
+        position: fixed;
+        z-index: 10;
+        right: 0;
+        left: 0;
+        width: 100%;
+    }
 </style>
 </head>
 <body>
@@ -59,7 +66,19 @@
 			<span class="mui-tab-label">排行榜</span>
 		</a>
 	</nav>
-	<div class="mui-content">
+    <div class="header">
+        <div class="mui-table-view no-bg no-line" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="mui-table-view-cell mui-media" style="padding: 5px 10px;">
+                <img class="mui-media-object mui-pull-left wechat_logo" src="http://www.3water.cn:9090/custom/50f7e9545a414401a0a2edaf1a56fdad.png">
+                <div class="mui-media-body" style="line-height: 20px">
+                    <span class="fs14 color0 wechat_name">上饶网</span>
+                    <p class="mui-ellipsis fs12 color0 wechat_summary">提供招聘、房产、交友、商家打折信息</p>
+                </div>
+                <div class="mui-btn mui-btn-primary guanzhu" style="padding: 2px 10px;">关注</div>
+            </div>
+        </div>
+    </div>
+	<div class="mui-content" style="padding-top: 52px;">
 		<div class="mui-card-media index-head">
 			<div class="user-info">
 				<div class="avatar-bg user-avatar mui-pull-left"></div>
@@ -130,6 +149,17 @@
 			<li class="mui-table-view-cell mui-media">
 			</li>
 		</ul>
+
+        <ul class="shop mui-table-view mt10 fs14">
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right items">
+                    <i class="mui-icon iconfont icon-dianpu" style="color:#f88d9f"></i>店铺主页
+                </div>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <p>点击进入，查看店铺优惠信息</p>
+            </li>
+        </ul>
 		<div id="giftDetail" class="mui-popup mui-popup-in" style="display: none;width:80%">
 			<div class="mui-popup-inner">
 				<img src="" style="height:60px;">

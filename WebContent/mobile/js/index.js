@@ -123,67 +123,126 @@ function getGroup(){
 }
 
 function getList() {
-	if(sessionStorage.getItem("keyword")){
-		$("#search").val(sessionStorage.getItem("keyword"));
-		sessionStorage.removeItem("keyword"); 
-	}
-	var keyword = $.trim($("#search").val());
-	var itemType = $("#itemType").val();
-	$("#search").val("");
-	ajaxPost(base+"/voteItem/getList",{
-			id:voteId,
-			pageNumber:pageNum,
-			pageSize:pageSize,
-			keyword:keyword,
-			itemType:itemType,
-			flag:flag
-		},function(json){
-		console.info(json);
-		totalPage=json.data.totalPage;
-		list=json.data.list;
-		if(json.data.list&&json.data.list.length>0){
-			if(keyword!=""){
-				$("#loadMore").html('<span>查看其它选手</span>');
-			}else{
-				if(pageNum>=totalPage){
-					$("#loadMore").html("没有更多数据了");
-				}else{
-					$("#loadMore").html('<span>点击查看更多</span>');
-				}
-			}
-			if(pageNum==1){
-				$(".falls .fl").empty();
-				$(".falls .fr").empty();
-			}
-			pageNum++;
-			jQuery.each(json.data.list,function(id,item){
-				var html=[];
-				html.push('<li id="'+item.id+'">');
-				html.push('<div class="li_box">');
-				html.push('<a href="../mobile/itemDetail.jsp?voteId='+voteId+'&itemId='+item.id+'" target="_top">');
-				html.push('<img src="'+imageUrl+item.head_img+'">');
-				html.push('</a>');
-//				html.push('<div class="info">');
-//				html.push('<span>'+item.user_code+'号</span>');
-//				html.push('<span class="mui-pull-right">'+item.user_name+'</span>');
-//				html.push('</div>');
-				html.push('<div class="toupiao items">');
-				html.push('<div class="item main-color fs14">'+item.user_code+'号 '+item.user_name+'</div>');
-				html.push('<div class="main-color fs14">'+nullToZero(item.vote_num)+'票</div>');
-				html.push('</div>');
-				html.push('</div>');  
-				html.push('</li>');
-				if(id%2==0){
-					$(".falls .fl").append(html.join(""));
-				}else{
-					$(".falls .fr").append(html.join(""));
-				}
-			});
-			if(keyword!=""){
-				pageNum = 1;
-			}
-		}else{
-			$("#loadMore").html("没有更多数据了");
-		}
-	});
+    if(pageNum==1){
+        $(".falls .fl").empty();
+        $(".falls .fr").empty();
+        $(".dropload-down").remove();
+    }
+    $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+            if(sessionStorage.getItem("keyword")){
+                $("#search").val(sessionStorage.getItem("keyword"));
+                sessionStorage.removeItem("keyword");
+            }
+            var keyword = $.trim($("#search").val());
+            var itemType = $("#itemType").val();
+            $("#search").val("");
+            ajaxPost(base+"/voteItem/getList",{
+                id:voteId,
+                pageNumber:pageNum,
+                pageSize:pageSize,
+                keyword:keyword,
+                itemType:itemType,
+                flag:flag
+            },function(json){
+                if(json.data.list&&json.data.list.length>0){
+                    if(pageNum==json.data.totalPage){
+                        me.lock();
+                        me.noData();
+                    }else{
+                        pageNum++;
+                    }
+                    $.each(json.data.list,function(id,item){
+                        var html=[];
+                        html.push('<li id="'+item.id+'">');
+                        html.push('<div class="li_box">');
+                        html.push('<a href="../mobile/itemDetail.jsp?voteId='+voteId+'&itemId='+item.id+'" target="_top">');
+                        html.push('<img src="'+imageUrl+item.head_img+'">');
+                        html.push('</a>');
+		//				html.push('<div class="info">');
+		//				html.push('<span>'+item.user_code+'号</span>');
+		//				html.push('<span class="mui-pull-right">'+item.user_name+'</span>');
+		//				html.push('</div>');
+                        html.push('<div class="toupiao items">');
+                        html.push('<div class="item main-color fs14">'+item.user_code+'号 '+item.user_name+'</div>');
+                        html.push('<div class="main-color fs14">'+nullToZero(item.vote_num)+'票</div>');
+                        html.push('</div>');
+                        html.push('</div>');
+                        html.push('</li>');
+                        if(id%2==0){
+                            $(".falls .fl").append(html.join(""));
+                        }else{
+                            $(".falls .fr").append(html.join(""));
+                        }
+                    });
+                    if(keyword!=""){
+                        pageNum = 1;
+                    }
+                    me.resetload();
+                }else{
+                    me.lock();
+                    me.noData();
+                    me.resetload();
+                }
+            });
+        }
+    });
+
+// 	ajaxPost(base+"/voteItem/getList",{
+// 			id:voteId,
+// 			pageNumber:pageNum,
+// 			pageSize:pageSize,
+// 			keyword:keyword,
+// 			itemType:itemType,
+// 			flag:flag
+// 		},function(json){
+// 		console.info(json);
+// 		totalPage=json.data.totalPage;
+// 		list=json.data.list;
+// 		if(json.data.list&&json.data.list.length>0){
+// 			if(keyword!=""){
+// 				$("#loadMore").html('<span>查看其它选手</span>');
+// 			}else{
+// 				if(pageNum>=totalPage){
+// 					$("#loadMore").html("没有更多数据了");
+// 				}else{
+// 					$("#loadMore").html('<span>点击查看更多</span>');
+// 				}
+// 			}
+// 			if(pageNum==1){
+// 				$(".falls .fl").empty();
+// 				$(".falls .fr").empty();
+// 			}
+// 			pageNum++;
+// 			jQuery.each(json.data.list,function(id,item){
+// 				var html=[];
+// 				html.push('<li id="'+item.id+'">');
+// 				html.push('<div class="li_box">');
+// 				html.push('<a href="../mobile/itemDetail.jsp?voteId='+voteId+'&itemId='+item.id+'" target="_top">');
+// 				html.push('<img src="'+imageUrl+item.head_img+'">');
+// 				html.push('</a>');
+// //				html.push('<div class="info">');
+// //				html.push('<span>'+item.user_code+'号</span>');
+// //				html.push('<span class="mui-pull-right">'+item.user_name+'</span>');
+// //				html.push('</div>');
+// 				html.push('<div class="toupiao items">');
+// 				html.push('<div class="item main-color fs14">'+item.user_code+'号 '+item.user_name+'</div>');
+// 				html.push('<div class="main-color fs14">'+nullToZero(item.vote_num)+'票</div>');
+// 				html.push('</div>');
+// 				html.push('</div>');
+// 				html.push('</li>');
+// 				if(id%2==0){
+// 					$(".falls .fl").append(html.join(""));
+// 				}else{
+// 					$(".falls .fr").append(html.join(""));
+// 				}
+// 			});
+// 			if(keyword!=""){
+// 				pageNum = 1;
+// 			}
+// 		}else{
+// 			$("#loadMore").html("没有更多数据了");
+// 		}
+// 	});
 }

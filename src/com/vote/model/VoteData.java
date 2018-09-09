@@ -16,10 +16,9 @@ public class VoteData extends Model<VoteData>
 	static Log log = Log.getLog(VoteData.class);
     public static final VoteData dao = new VoteData();
 
-    public VoteData getByOpenid(String openid){
-    	VoteData voteData = findFirst("select * from vote_data where openid=? and vote_type='10'"
-    			+ "and DATE_FORMAT(create_time, '%Y-%m-%d') = CURDATE()",openid);
-    	return voteData;
+    public Record getByOpenid(String openid, int groupId){
+    	return Db.findFirst("select b.item_type from vote_data a, vote_item b where a.openid=? and a.vote_type='10'"
+    			+ " and a.item_id =b.id and b.group_id=? and DATE_FORMAT(a.create_time, '%Y-%m-%d') = CURDATE() ",openid, groupId);
     }
     
     public int getVoteNum(int itemId){
