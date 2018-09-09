@@ -8,7 +8,7 @@
     color: #FF9800;
 }
 .main-bgcolor{
-	background-color: #73a9f9!important;
+	background-color: #ea0607!important;
 }
 .index-head{
 	height:200px;
@@ -253,7 +253,7 @@
 	padding:0 10px;
 }
 .li_box {
-    background: #89cff0;
+    background: #ffffff;
     padding: 5px;
     overflow: hidden;
 }
@@ -399,7 +399,7 @@
 }
 .segmented-control .control-item.mui-active {
     color: #fff;
-    background-color: #89cff0;
+    background-color: #e37045;
 }
 .mui-table .mui-btn{
 	margin-right:10px;
@@ -418,21 +418,19 @@ input[type='submit'],
 }
 input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 .mui-btn-primary:enabled:active,
-.mui-btn-primary.mui-active:enabled, .mui-btn-blue:enabled:active, .mui-btn-blue.mui-active:enabled
-{
+.mui-btn-primary.mui-active:enabled, .mui-btn-blue:enabled:active, .mui-btn-blue.mui-active:enabled{
     color: #fff;
     border: 1px solid #78aeff;
     background-color: #78aeff;
 }
-.mui-bar
-{
-    background-color: #73a9f9;
+.mui-bar{
+    background-color: #ea0607;
 }
 .mui-bar-tab {
-    border-top: 1px solid #78aeff;
+    border-top: 1px solid #ea0607;
 }
 .mui-bar-nav {
-    border-bottom: 1px solid #78aeff;
+    border-bottom: 1px solid #ea0607;
 }
 .border-bottom-color{
 	border-bottom: 1px solid #fff;
@@ -444,6 +442,6 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 	margin-bottom:0;
 	margin-top:0;
 	line-height:19px;
-    background-color: #73a9f9;
+    background-color: #ea0607;
     color: #fff;
 }
