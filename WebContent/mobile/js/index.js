@@ -38,11 +38,7 @@ mui.ready(function(){
 			$(this).addClass("mui-active");
 			$(this).siblings().removeClass("mui-active");
 			flag=$(this).index();
-			if(flag==1){
-				$("#itemType").hide();
-			}else{
-				$("#itemType").show();
-			}
+            $("#category-head .active").removeClass("active");
 			$(".falls .fl").empty();
 			$(".falls .fr").empty();
 			pageNum = 1;
@@ -188,61 +184,4 @@ function getList() {
             });
         }
     });
-
-// 	ajaxPost(base+"/voteItem/getList",{
-// 			id:voteId,
-// 			pageNumber:pageNum,
-// 			pageSize:pageSize,
-// 			keyword:keyword,
-// 			itemType:itemType,
-// 			flag:flag
-// 		},function(json){
-// 		console.info(json);
-// 		totalPage=json.data.totalPage;
-// 		list=json.data.list;
-// 		if(json.data.list&&json.data.list.length>0){
-// 			if(keyword!=""){
-// 				$("#loadMore").html('<span>查看其它选手</span>');
-// 			}else{
-// 				if(pageNum>=totalPage){
-// 					$("#loadMore").html("没有更多数据了");
-// 				}else{
-// 					$("#loadMore").html('<span>点击查看更多</span>');
-// 				}
-// 			}
-// 			if(pageNum==1){
-// 				$(".falls .fl").empty();
-// 				$(".falls .fr").empty();
-// 			}
-// 			pageNum++;
-// 			jQuery.each(json.data.list,function(id,item){
-// 				var html=[];
-// 				html.push('<li id="'+item.id+'">');
-// 				html.push('<div class="li_box">');
-// 				html.push('<a href="../mobile/itemDetail.jsp?voteId='+voteId+'&itemId='+item.id+'" target="_top">');
-// 				html.push('<img src="'+imageUrl+item.head_img+'">');
-// 				html.push('</a>');
-// //				html.push('<div class="info">');
-// //				html.push('<span>'+item.user_code+'号</span>');
-// //				html.push('<span class="mui-pull-right">'+item.user_name+'</span>');
-// //				html.push('</div>');
-// 				html.push('<div class="toupiao items">');
-// 				html.push('<div class="item main-color fs14">'+item.user_code+'号 '+item.user_name+'</div>');
-// 				html.push('<div class="main-color fs14">'+nullToZero(item.vote_num)+'票</div>');
-// 				html.push('</div>');
-// 				html.push('</div>');
-// 				html.push('</li>');
-// 				if(id%2==0){
-// 					$(".falls .fl").append(html.join(""));
-// 				}else{
-// 					$(".falls .fr").append(html.join(""));
-// 				}
-// 			});
-// 			if(keyword!=""){
-// 				pageNum = 1;
-// 			}
-// 		}else{
-// 			$("#loadMore").html("没有更多数据了");
-// 		}
-// 	});
 }

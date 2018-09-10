@@ -36,7 +36,7 @@ public class VoteItem extends Model<VoteItem>
     	if(!Utility.isEmpty(keyword)){
     		sql.append(" and (a.user_code='"+keyword+"' or a.user_name like '%"+keyword+"%')");
     	}
-    	if(!Utility.isEmpty(itemType)&&"0".equals(flag)){
+    	if(!Utility.isEmpty(itemType)){
     		sql.append(" and a.item_type="+itemType+"");
     	}
     	if("0".equals(flag)){
