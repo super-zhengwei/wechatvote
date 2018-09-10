@@ -25,13 +25,14 @@
 	}
 	#category-head{
 		width:100%;
-		background:red;
+		background:#ea0607;
 		z-index:-999;
 		white-space: nowrap;
 		overflow-x: auto;
 		float:left;
-		border-top: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
+	}
+	#category-head .active{
+		background: #f88d9f;
 	}
 	#category-head li{
 		display:inline-block;
@@ -115,14 +116,7 @@
 		
 		<div class="wrap">
 			<ul id="category-head">
-		       <li class="flex" style="">中餐</li>
-		       <li class="flex" style="" >火锅</li>
-		       <li class="flex hover" style="" >自助餐西餐</li>
-		       <li class="flex" style="" >酒店</li>
-		       <li class="flex" style="" >土特菜</li>
-		       <li class="flex" style="" >特色小吃</li>
-		       <li class="flex" style="" >休闲娱乐</li>
-		       <li class="flex" style="" >特色农家乐</li>
+		       
 			</ul>
 		</div>
 		<div class="content">

@@ -9,9 +9,8 @@ mui.init();
  *初始化、添加监听 
  */
 mui.ready(function(){
-	$("#itemType").append('<option value="">选择分类</option>');
 	$.each(itemType,function(id,item){
-		$("#itemType").append('<option value="'+item.dict_key+'">'+item.dict_value+'</option>');
+		$("#category-head").append('<li class="flex" data-id="'+item.dict_key+'">'+item.dict_value+'</li>');
 	});
 	getVoteInfo();
 	getList();
@@ -90,8 +89,9 @@ mui.ready(function(){
 			}
 		});
 	});
-	
-	$("#itemType").on('change',function(e){
+	$("#category-head").on("tap","li",function(){
+		$(this).addClass("active");
+		$(this).siblings().removeClass("active");
 		pageNum = 1;
 		$(".falls .fl").empty();
 		$(".falls .fr").empty();
@@ -136,7 +136,7 @@ function getList() {
                 sessionStorage.removeItem("keyword");
             }
             var keyword = $.trim($("#search").val());
-            var itemType = $("#itemType").val();
+            var itemType = $("#category-head .active").attr("data-id");
             $("#search").val("");
             ajaxPost(base+"/voteItem/getList",{
                 id:voteId,
